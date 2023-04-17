@@ -209,6 +209,9 @@ PublishScripts/
 *.nuget.props
 *.nuget.targets
 
+# Angular cache
+.angular/cache/
+
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
