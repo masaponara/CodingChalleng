@@ -4,7 +4,7 @@ namespace CodingChallenge_Nextech.Business.Services
 {
     public interface IStoriesService
     {
-        public Task<IEnumerable<Story>> GetNewStories();
+        public Task<Tuple<IEnumerable<Story>?, int>> GetNewStories(int page, string? titleOrId);
         public Task<Story?> GetStoryById(int storyId);
     }
 }

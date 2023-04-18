@@ -1,24 +1,43 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">Newest Stories</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Newest stories from Hacker News API</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!Stories"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+<div class="input-group" *ngIf="Stories">
+  <input type="text" class="form-control" placeholder="Search by Title or Id" [(ngModel)]="titleSearch">  
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary btn-light" type="button" (click)="searchFilter()">Search</button>
+  </div>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="Stories">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th>Story Id</th>
+      <th>Title</th>
+      <th>URL</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr *ngFor="let story of Stories
+                | paginate
+                  : {
+                      itemsPerPage: 10,
+                      currentPage: pagination,
+                      totalItems: totalRows
+                    }">
+      <td>{{ story.id }}</td>
+      <td>{{ story.title }}</td>
+      <td>{{ story.url }}</td>
+    </tr>
+    <tr *ngIf="!Stories">
+      <td colspan="5" class="text-center p-5">No records found</td>
     </tr>
   </tbody>
 </table>
+<div class="d-flex justify-content-center" *ngIf="Stories">
+  <pagination-controls
+    (pageChange)="renderPage($event)"
+  ></pagination-controls>
+</div>
