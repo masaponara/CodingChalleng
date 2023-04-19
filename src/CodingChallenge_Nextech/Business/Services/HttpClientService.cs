@@ -1,14 +1,13 @@
-﻿using CodingChallenge_Nextech.Model;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace CodingChallenge_Nextech.Business.Services
 {
-    public class HttpClientService
+    public class HttpClientService : IHttpClientService
     {
         private readonly HttpClient _httpClient;
-        public HttpClientService()
+        public HttpClientService(HttpClient httpClient)
         {
-            _httpClient = new HttpClient();
+            _httpClient = httpClient;
         }
 
         public async Task<T?> GetDataAsync<T>(string uri) where T : class

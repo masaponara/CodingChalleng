@@ -1,8 +1,6 @@
 ﻿using CodingChallenge_Nextech.Business.Dtos;
 using CodingChallenge_Nextech.Business.Services;
-using CodingChallenge_Nextech.Model;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json.Nodes;
 
 namespace CodingChallenge_Nextech.Controllers
 {

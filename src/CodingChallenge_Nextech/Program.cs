@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddHttpClient<IHttpClientService, HttpClientService>();
 builder.Services.AddScoped<IStoriesService, StoriesService>();
 
 var app = builder.Build();

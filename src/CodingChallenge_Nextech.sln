@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge_Nextech", "CodingChallenge_Nextech\CodingChallenge_Nextech.csproj", "{2C58ED7C-CB14-48AB-AB1C-483B7CB1546F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingChallenge_Nextech", "CodingChallenge_Nextech\CodingChallenge_Nextech.csproj", "{2C58ED7C-CB14-48AB-AB1C-483B7CB1546F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge_NextechTests", "CodingChallenge_NextechTests\CodingChallenge_NextechTests.csproj", "{FF32389B-B0F9-4861-9A8B-6FF3215199FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2C58ED7C-CB14-48AB-AB1C-483B7CB1546F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C58ED7C-CB14-48AB-AB1C-483B7CB1546F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C58ED7C-CB14-48AB-AB1C-483B7CB1546F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF32389B-B0F9-4861-9A8B-6FF3215199FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF32389B-B0F9-4861-9A8B-6FF3215199FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF32389B-B0F9-4861-9A8B-6FF3215199FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF32389B-B0F9-4861-9A8B-6FF3215199FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,21 +1,17 @@
-﻿using CodingChallenge_Nextech.Business.Dtos;
-using CodingChallenge_Nextech.Model;
+﻿using CodingChallenge_Nextech.Model;
 using Microsoft.Extensions.Caching.Memory;
-using Newtonsoft.Json;
-using System.Net.Http;
-using System.Xml.Linq;
 
 namespace CodingChallenge_Nextech.Business.Services
 {
     public class StoriesService : IStoriesService
     {
         private const string _newStoriesList = "NewStoriesList";
-        private readonly HttpClientService _httpClientService;
+        private readonly IHttpClientService _httpClientService;
         private readonly IMemoryCache _memoryCache;
 
-        public StoriesService(IMemoryCache memoryCache)
+        public StoriesService(IMemoryCache memoryCache, IHttpClientService httpClientService)
         {
-            _httpClientService = new HttpClientService();
+            _httpClientService = httpClientService;
             _memoryCache = memoryCache;
         }
 
@@ -41,7 +37,7 @@ namespace CodingChallenge_Nextech.Business.Services
                     stories.Add(story);
                 });
 
-                SaveInMemeryCache(stories);
+                SaveInMemoryCache(stories);
 
                 stories = ApplyFilterAndPagination(stories, page, titleOrId, ref totalRows);
             }
@@ -49,7 +45,7 @@ namespace CodingChallenge_Nextech.Business.Services
             return new Tuple<IEnumerable<Story>?, int>(stories, totalRows);
         }
 
-        private void SaveInMemeryCache(List<Story> stories)
+        private void SaveInMemoryCache(List<Story> stories)
         {
             var cacheOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(10))
